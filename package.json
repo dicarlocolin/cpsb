@@ -1,0 +1,39 @@
+{
+  "name": "cypat-scoreboard",
+  "version": "1.0.0",
+  "description": "CyberPatriot scoreboard desktop application",
+  "author": "CyPat Scoreboard",
+  "private": true,
+  "main": "electron/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "test": "node --test electron/*.test.cjs"
+  },
+  "devDependencies": {
+    "electron": "45.0.0",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "org.cypat.scoreboard",
+    "productName": "CyPat Scoreboard",
+    "files": [
+      "electron/*.cjs",
+      "!electron/*.test.cjs",
+      "public/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.utilities",
+      "icon": "build/icon.icns"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
